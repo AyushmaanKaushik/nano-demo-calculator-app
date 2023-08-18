@@ -10,11 +10,16 @@ def greeting():
 
 @app.route("/calculator/add", methods=['POST'])
 def add():
-    return str(request.json['first'] + request.json['second'])
+    first = request.json['first']
+    second = request.json['second']
+    # return a json response that stores the answer in a result key
+    return {'result': first + second}
 
 @app.route("/calculator/subtract", methods=['POST'])
 def subtract():
-    return str(request.json['first'] - request.json['second'])
+    first = request.json['first']
+    second = request.json['second']
+    return {'result': first - second}
 
 if __name__ == '__main__':
     app.run(port=8080,host='0.0.0.0')
